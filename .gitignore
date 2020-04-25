@@ -1,5 +1,6 @@
 .idea/
 target/
+mvnw*
 # Compiled class file
 *.class
 
