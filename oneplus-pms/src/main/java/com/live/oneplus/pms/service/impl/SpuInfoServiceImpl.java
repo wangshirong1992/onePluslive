@@ -1,5 +1,6 @@
 package com.live.oneplus.pms.service.impl;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -15,7 +16,7 @@ import com.live.oneplus.pms.service.SpuInfoService;
 
 @Service("spuInfoService")
 public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> implements SpuInfoService {
-
+    //@GlobalTransactional
     @Override
     public PageVo queryPage(QueryCondition params) {
         IPage<SpuInfoEntity> page = this.page(
