@@ -8,6 +8,7 @@
 
 package com.live.modules.sys.controller;
 
+import com.live.common.annotation.SysLog;
 import com.live.common.utils.R;
 import com.live.modules.sys.entity.SysUserEntity;
 import com.live.modules.sys.form.SysLoginForm;
@@ -17,10 +18,7 @@ import com.live.modules.sys.service.SysUserTokenService;
 import org.apache.commons.io.IOUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
@@ -95,5 +93,13 @@ public class SysLoginController extends AbstractController {
 		sysUserTokenService.logout(getUserId());
 		return R.ok();
 	}
-	
+	/**
+	 * 测试log
+	 */
+	@SysLog(value = "test测试",desc = "#username")
+	@PostMapping("/sys/testlog")
+	public R testlog(@RequestParam("username")String username) {
+		//sysUserTokenService.logout(getUserId());
+		return R.ok();
+	}
 }
